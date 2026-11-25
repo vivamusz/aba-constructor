@@ -171,7 +171,7 @@ $('bWord').onclick=async()=>{const b=$('bWord'),t=b.textContent;b.disabled=true;
 /* ---------- картинки из библиотеки AYMABA (тот же поиск, что на странице печати: сразу по всем темам) ---------- */
 const LIB='https://vivamusz.github.io/aymaba/';let LIBD=null,libT=null;
 const norm=s=>(s||'').toLowerCase().replace(/ё/g,'е').trim();
-async function libLoad(){if(LIBD)return LIBD;try{const r=await fetch(LIB+'data/cards.json?v=kk1');LIBD=await r.json()}catch(e){LIBD={cards:[],categories:[],err:1}}return LIBD}
+async function libLoad(){if(LIBD)return LIBD;try{const r=await fetch(LIB+'data/cards.json?v=kk2');LIBD=await r.json()}catch(e){LIBD={cards:[],categories:[],err:1}}return LIBD}
 async function libSearch(){const q=norm($('libQ').value),box=$('libRes');const d=await libLoad();
  if(d.err){box.innerHTML='<p class="hint">'+U('Библиотека сейчас недоступна. Проверьте интернет.')+'</p>';return}
  const cats=q?d.categories.filter(c=>norm(c.ru).includes(q)||norm(c.kk).includes(q)).map(c=>c.num):[];
